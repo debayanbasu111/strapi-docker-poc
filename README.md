@@ -58,13 +58,13 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 
 ## Detailed Steps Debayan followed to set this up
 
-Install Node.js
-Run - npx create-strapi-app
-What would you like to name your project? docker-strapi-tutorial
-Move into the project folder - cd docker-strapi-tutorial
-Open it in VSCode - code .
-Create a file called Dockerfile
-Paste below content -
+- Install Node.js
+- Run - npx create-strapi-app
+- What would you like to name your project? docker-strapi-tutorial
+- Move into the project folder - cd docker-strapi-tutorial
+- Open it in VSCode - code .
+- Create a file called Dockerfile
+- Paste below content -
 ```
 FROM node:18
 
@@ -93,16 +93,16 @@ build/
 node_modules/
 data/
 ```
-Build the image - docker build -t mystrapi:latest .
-Run the image - docker run -d -p 1337:1337 mystrapi
+- Build the image - docker build -t mystrapi:latest .
+- Run the image - docker run -d -p 1337:1337 mystrapi
 
-List running containers: docker ps
-Stop the container by its name or ID: docker stop <container_name_or_id>
+- List running containers: docker ps
+- Stop the container by its name or ID: docker stop <container_name_or_id>
 
-Article to refer - https://blog.dehlin.dev/docker-with-strapi-v4
+- Article to refer - https://blog.dehlin.dev/docker-with-strapi-v4
 
-Created a docker-compose.yml file the root position
-Pasted below content
+- Created a docker-compose.yml file the root position
+- Pasted below content
 ```
 version: "3"
 services:
@@ -150,10 +150,10 @@ strapi:
 name: Strapi
 driver: bridge
 ```
-Install pg to point to postgres DB instead of the default SQLite DB - npm i pg
-Rebuild the Docker image: docker build -t mystrapi:latest .
-Update below line in config/database.ts file - const client = env('DATABASE_CLIENT', 'postgres');
-Update DB details in .env file as below -
+- Install pg to point to postgres DB instead of the default SQLite DB - npm i pg
+- Rebuild the Docker image: docker build -t mystrapi:latest .
+- Update below line in config/database.ts file - const client = env('DATABASE_CLIENT', 'postgres');
+- Update DB details in .env file as below -
 ```
 # Database
 
@@ -167,11 +167,11 @@ DATABASE_SSL=false
 DATABASE_FILENAME=.tmp/data.db
 JWT_SECRET=Gjk+U5Sxm8LXEo/qxfv8sQ==
 ```
-To run this -
+- To run this -
 
-docker-compose up -d strapiDB && npm run develop - This will now spin up just a Postgres database, and we can run and change files just like working on strapi anywhere. Here, DATABASE_HOST=localhost
+- docker-compose up -d strapiDB && npm run develop - This will now spin up just a Postgres database, and we can run and change files just like working on strapi anywhere. Here, DATABASE_HOST=localhost
 
-docker-compose up -d' - This will run strapi inside a docker container and the database in its own container. Here, DATABASE_HOST=strapiDB
+- docker-compose up -d' - This will run strapi inside a docker container and the database in its own container. Here, DATABASE_HOST=strapiDB
 
 I hope it helps you to set the whole system up!!
 
