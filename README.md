@@ -65,7 +65,7 @@ Move into the project folder - cd docker-strapi-tutorial
 Open it in VSCode - code .
 Create a file called Dockerfile
 Paste below content -
-
+```
 FROM node:18
 
 # Installing libvips-dev for sharp Compatability
@@ -82,17 +82,17 @@ COPY ./ .
 RUN npm run build
 EXPOSE 1337
 CMD ["npm", "run", "develop"]
-
+```
 Create a file called .dockerignore
 Paste below content -
-
+```
 .tmp/
 .cache/
 .git/
 build/
 node_modules/
 data/
-
+```
 Build the image - docker build -t mystrapi:latest .
 Run the image - docker run -d -p 1337:1337 mystrapi
 
@@ -103,7 +103,7 @@ Article to refer - https://blog.dehlin.dev/docker-with-strapi-v4
 
 Created a docker-compose.yml file the root position
 Pasted below content
-
+```
 version: "3"
 services:
 strapi:
@@ -149,12 +149,12 @@ networks:
 strapi:
 name: Strapi
 driver: bridge
-
+```
 Install pg to point to postgres DB instead of the default SQLite DB - npm i pg
 Rebuild the Docker image: docker build -t mystrapi:latest .
 Update below line in config/database.ts file - const client = env('DATABASE_CLIENT', 'postgres');
 Update DB details in .env file as below -
-
+```
 # Database
 
 DATABASE_CLIENT=postgres
@@ -166,7 +166,7 @@ DATABASE_PASSWORD=strapi
 DATABASE_SSL=false
 DATABASE_FILENAME=.tmp/data.db
 JWT_SECRET=Gjk+U5Sxm8LXEo/qxfv8sQ==
-
+```
 To run this -
 
 docker-compose up -d strapiDB && npm run develop - This will now spin up just a Postgres database, and we can run and change files just like working on strapi anywhere. Here, DATABASE_HOST=localhost
