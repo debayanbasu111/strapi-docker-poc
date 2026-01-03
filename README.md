@@ -177,4 +177,4 @@ I hope it helps you to set the whole system up!!
 
 ---
 
-<sub> [Connect with me on LinkedIn for any doubts]([linkedin.com/in/debayanbasu11/](https://www.linkedin.com/in/debayanbasu11/)).</sub>
+<sub> [Connect with me on LinkedIn for any doubts](https://www.linkedin.com/in/debayanbasu11/).</sub>
